@@ -5,7 +5,7 @@
 
 Catching the professors schedule at UFERSA is an annoying task.
 We should to stalk more than 750 personal links, copy and paste
-many detail over many semesters. To solve this I developed this web crawler that collect the historical class schedule for each UFERSA Professor during all his
+many detail over many semesters. To solve this I developed this web crawler that collect the historical classes schedule for each UFERSA Professor during all his
 professor carrer.
 
 ## Get Data:
@@ -16,6 +16,14 @@ If you are interested only the data:
 
 ## Execute Code:
 
-If you are interested in execute the code (to get all historical class information):
-* It is necessary
+If you are interested in execute the code to get all historical classes information:
+
+### Get information about all professors @UFERSA:
+```console
+foo@bar:~$ sh francis_professors.sh
+```
+### Get historical classes schedule for all professors @UFERSA:
+```console
+foo@bar:~$ sh francis_schedule.sh
+```
 
