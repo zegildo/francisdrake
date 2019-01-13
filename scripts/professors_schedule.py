@@ -3,7 +3,7 @@
 Author: ZéGildo (zegildo@gmail.com)
 ---------------
 
-Catching the professors schedule at UFERSA is a annoying task.
+Catching the professors schedule at UFERSA is an annoying task.
 We should to stalk more than 700 personal links, copy and paste
 each detail over many semesters.
 
@@ -16,7 +16,7 @@ import sys
 import requests
 from lxml import html
 
-def get_schedule(nivel):
+def print_schedule_class(nivel):
     """Get the schedule class present in nivel.
 
     Args:
@@ -28,7 +28,7 @@ def get_schedule(nivel):
         -------
         111111,turmas-graduacao,2018.1,PAC0864,ESPAÇO E FORMA,60h,6M2345
     """
-    nivel = nivel.get('id')
+    nivel_id = nivel.get('id')
     ano_periodo = ''
     codigo_disciplina = ''
     nome_disciplina = ''
@@ -38,21 +38,35 @@ def get_schedule(nivel):
         if element.tag == 'td':
             classe = element.get('class')
             if classe == 'anoPeriodo':
-                ano_periodo = element.text.strip()
+                ano_periodo = clean_string(element.text)
             elif classe == 'codigo':
-                codigo_disciplina = element.text.strip()
+                codigo_disciplina = clean_string(element.text)
             elif classe == 'ch':
-                carga_horaria = element.text.strip()
+                carga_horaria = clean_string(element.text)
             elif classe == 'horario':
-                horario = element.text.strip()
-                return (SIAPE, nivel, ano_periodo,
-                        codigo_disciplina, nome_disciplina,
-                        carga_horaria, horario)
+                horario = clean_string(element.text)
+                print '{0},"{1}","{2}","{3}","{4}","{5}","{6}"'.format(SIAPE,
+                                                                       nivel_id,
+                                                                       ano_periodo,
+                                                                       codigo_disciplina,
+                                                                       nome_disciplina,
+                                                                       carga_horaria,
+                                                                       horario)
         elif element.tag == 'a':
-            nome_disciplina = element.text.strip()
-    return None
+            nome_disciplina = clean_string(element.text)
 
-def buil_schedule_professor(url):
+def clean_string(string):
+    """Get a clean version of a string
+
+    Args:
+        A string that should be cleaned
+    Returns:
+        A clean version of a string
+    """
+    new_string = string.encode('utf-8').strip()
+    return new_string
+
+def buil_schedule_professors(url):
     """Get the schedule class from the personal link
     of a UFERSA's professor
 
@@ -76,15 +90,11 @@ def buil_schedule_professor(url):
     hrs = html.fromstring(response.text)
     niveis = hrs.xpath('//div[@class="aba"]')
     for nivel in niveis:
-        horario = get_schedule(nivel)
-        if horario:
-            print horario
-        else:
-            print 'ERRO:', SIAPE
+        print_schedule_class(nivel)
 #This code should be execute in terminal like:
 #cat siapes | time parallel -j+0 --progress python professors_schedule.py {} > horarios.csv
 if __name__ == "__main__":
 
     SIAPE = sys.argv[1:][0]
     URL = 'https://sigaa.ufersa.edu.br/sigaa/public/docente/disciplinas.jsf?siape='
-    buil_schedule_professor(URL+SIAPE)
+    buil_schedule_professors(URL+SIAPE)

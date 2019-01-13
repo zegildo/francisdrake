@@ -20,5 +20,5 @@ CREATE TABLE horario_professores(
 	horario varchar(500)
 );
 
-COPY horario_professores FROM '../horarios_ufersa.csv' DELIMITER ',' CSV HEADER
-COPY professores FROM '../ufersa_teachers.csv' DELIMITER ',' CSV HEADER
+COPY horario_professores FROM '../output/horarios_ufersa.csv' DELIMITER ',' CSV HEADER
+COPY professores FROM '../output/professors_information.csv' DELIMITER ',' CSV HEADER
