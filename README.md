@@ -1,4 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zegildo/francisdrake/blob/master/License.md) 
+[![fork](https://img.shields.io/github/forks/zegildo/francisdrake.svg)](https://github.com/zegildo/francisdrake/network/members)
 [![issues](https://img.shields.io/github/issues/zegildo/francisdrake.svg)](https://github.com/zegildo/francisdrake/issues)
 
 # Sir Francis Drake
