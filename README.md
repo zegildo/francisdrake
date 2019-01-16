@@ -23,8 +23,22 @@ If you are interested in execute the code to get all historical classes informat
 ```console
 foo@bar:~$ sh francis_professors.sh
 ```
+Input:
+[departaments](https://github.com/zegildo/francisdrake/blob/master/inputs/departaments): A list of actual and valid departaments in the University.
+Output:
+[professors_information.csv](https://github.com/zegildo/francisdrake/blob/master/output/professors_information.csv): A dataset with basic information about professors (siape, name, departament, photo, personal link).
+
 ### Get historical classes schedule for all professors @UFERSA:
 ```console
 foo@bar:~$ sh francis_schedule.sh
 ```
+Input:
+[siapes](https://github.com/zegildo/francisdrake/blob/master/inputs/siapes): a list of siapes (*id professors*).
+
+Output:
+[horarios_ufersa.csv](https://github.com/zegildo/francisdrake/blob/master/output/horarios_ufersa.csv): All schedule classes.
+
+# Important
+It is necessary to install the [parallel](https://www.gnu.org/software/parallel/) command to run these **.sh**.
+
 
