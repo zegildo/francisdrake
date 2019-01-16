@@ -25,6 +25,7 @@ foo@bar:~$ sh francis_professors.sh
 ```
 Input:
 [departaments](https://github.com/zegildo/francisdrake/blob/master/inputs/departaments): A list of actual and valid departaments in the University.
+
 Output:
 [professors_information.csv](https://github.com/zegildo/francisdrake/blob/master/output/professors_information.csv): A dataset with basic information about professors (siape, name, departament, photo, personal link).
 
@@ -36,7 +37,7 @@ Input:
 [siapes](https://github.com/zegildo/francisdrake/blob/master/inputs/siapes): a list of siapes (*id professors*).
 
 Output:
-[horarios_ufersa.csv](https://github.com/zegildo/francisdrake/blob/master/output/horarios_ufersa.csv): All schedule classes.
+[horarios_ufersa.csv](https://github.com/zegildo/francisdrake/blob/master/output/horarios_ufersa.csv): All schedule classes for all professors.
 
 # Important
 It is necessary to install the [parallel](https://www.gnu.org/software/parallel/) command to run these **.sh**.
