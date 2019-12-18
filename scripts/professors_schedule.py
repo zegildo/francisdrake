@@ -95,6 +95,6 @@ def buil_schedule_professors(url):
 #cat siapes | time parallel -j+0 --progress python professors_schedule.py {} > horarios.csv
 if __name__ == "__main__":
 
-    SIAPE = sys.argv[1:][0]
+    SIAPE = sys.argv[1]
     URL = 'https://sigaa.ufersa.edu.br/sigaa/public/docente/disciplinas.jsf?siape='
     buil_schedule_professors(URL+SIAPE)
