@@ -29,7 +29,7 @@ def get_reitoria_siapes():
         # Jose Domingues Fontenele Neto - 1181653
         # Felipe De Azevedo Silva Ribeiro - 1670609
     '''
-    siapes_reitoria = [336632, 1181653, 1181653]
+    siapes_reitoria = [336632, 1181653, 1670609]
     return siapes_reitoria
 
 def get_pro_reitores_siapes():
@@ -136,7 +136,7 @@ def print_list_special_professors():
         dep = get_clean_name(dep)
         ft = pg_prof.xpath('//div[@class="foto_professor"]/img/@src')[0]
         ft = URL_BASE+ft
-        siape = siape
+        siape = siapes[i]
         print'{0},"{1}","{2}","{3}","{4}"'.format(siape, nome, dep, ft, urls[i])     
         i = i+1
 
