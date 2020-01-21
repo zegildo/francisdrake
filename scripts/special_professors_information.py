@@ -17,7 +17,7 @@ def get_clean_name(name):
     Returns:
         A printable name
     '''
-    return name.encode('utf-8').strip()
+    return name.encode('utf-8').decode().strip()
 
 def get_reitoria_siapes():
     '''
@@ -137,7 +137,8 @@ def print_list_special_professors():
         ft = pg_prof.xpath('//div[@class="foto_professor"]/img/@src')[0]
         ft = URL_BASE+ft
         siape = siapes[i]
-        print'{0},"{1}","{2}","{3}","{4}"'.format(siape, nome, dep, ft, urls[i])     
+        pg = urls[i]
+        print(f'{siape}, "{nome}", "{dep}", "{ft}", "{pg}"')
         i = i+1
 
 print_list_special_professors()

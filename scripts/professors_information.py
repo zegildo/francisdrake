@@ -76,7 +76,7 @@ def get_clean_names(names):
     Returns:
         An array with printable names
     '''
-    clean_names = [name.encode('utf-8').strip() for name in names]
+    clean_names = [name.encode('utf-8').decode().strip() for name in names]
     return clean_names
 
 def print_list_ufersa_professors(departament):
@@ -95,7 +95,7 @@ def print_list_ufersa_professors(departament):
     paginas = agg_info_url_base(URL_BASE, paginas)
     siapes = get_siape_professors(paginas)
     for siape, nome, dep, ft, pg in zip(siapes, nomes, departamentos, fotos, paginas):
-        print'{0},"{1}","{2}","{3}","{4}"'.format(siape, nome, dep, ft, pg)
+        print(f'{siape}, "{nome}", "{dep}", "{ft}", "{pg}"')
 
 #This code should be execute in terminal like:
 #cat siapes | time parallel -j+0 --progress python professors_information.py {} > professors_information.csv
