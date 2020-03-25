@@ -30,10 +30,15 @@ def get_view_state(session):
         The view state information that will be pass on the
         post request.
     '''
-    response = session.get(URL)
-    body = html.fromstring(response.text)
-    view_state = body.xpath('//input[@id="javax.faces.ViewState"]/@value')[0]
-    return view_state
+    try:
+        response = session.get(URL)
+        body = html.fromstring(response.text)
+        view_state = body.xpath('//input[@id="javax.faces.ViewState"]/@value')[0]
+        return view_state
+    except:    
+        print("Problemas com a conexão de Internet!")
+        sys.exit()
+    
 
 def get_ufersa_departament_page(departament):
     '''Send a post request

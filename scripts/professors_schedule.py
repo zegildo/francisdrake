@@ -97,4 +97,7 @@ if __name__ == "__main__":
 
     SIAPE = sys.argv[1]
     URL = 'https://sigaa.ufersa.edu.br/sigaa/public/docente/disciplinas.jsf?siape='
-    buil_schedule_professors(URL+SIAPE)
+    try:
+        buil_schedule_professors(URL+SIAPE)
+    except:
+        print(SIAPE)
